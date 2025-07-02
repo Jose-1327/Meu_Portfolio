@@ -27,7 +27,7 @@ body {
 .profile-photo {
     width: 150px;
     height: 150px;
-    border-radius: 50%;
+    border-radius: 8%;
     object-fit: cover;
     border: 5px solid #a8cde6;
     margin-bottom: 15px;
@@ -275,3 +275,15 @@ body {
     margin-bottom: 8px;
 }
 
+.experience-item p {
+    display: flex; /* Transforma o parágrafo em um contêiner flexível */
+    align-items: center; /* Alinha os itens (imagem e texto) verticalmente ao centro */
+    margin-bottom: 5px; /* Ajuste esta margem se precisar de mais ou menos espaço abaixo do parágrafo */
+}
+
+.experience-item p img {
+    width: 50px; /* Define a largura da imagem. Ajuste este valor para diminuir ou aumentar */
+    height: auto; /* Mantém a proporção da imagem */
+    margin-right: 5px; /* Adiciona um espaço à direita da imagem, separando-a do texto */
+    vertical-align: middle; /* Ajuda a alinhar a imagem com o meio do texto */
+}
