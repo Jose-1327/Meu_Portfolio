@@ -1,0 +1,277 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(to right, #001f3f, #003566, #005792, #0077b6);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+    gap: 30px;
+}
+
+/* Estilos para a Seção do Topo (header-profile) */
+.header-profile {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 900px;
+    padding: 30px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.profile-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #a8cde6;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.header-profile h1 {
+    font-size: 2.5em;
+    color: #e6f2ff;
+    margin-bottom: 5px;
+}
+
+.title-role {
+    font-size: 1.3em;
+    color: #cce0ff;
+    margin-bottom: 15px;
+}
+
+.contact-info {
+    font-size: 1em;
+    color: #b3d9ff;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.social-links a {
+    display: inline-block;
+    margin: 0 10px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #e0f2ff;
+    text-decoration: underline;
+}
+
+.cv-button {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.cv-button:hover {
+    background-color: #0056b3;
+}
+
+.personal-description {
+    font-size: 1.1em;
+    color: #b3d9ff;
+    margin-top: 20px;
+    line-height: 1.6;
+}
+
+/* CONTAINER GERAL */
+.container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 900px;
+    overflow: hidden;
+    color: #333;
+}
+
+/* Estilos para o Accordion (Sanfona) */
+.accordion-item {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.accordion-item:last-child {
+    border-bottom: none; /* Remove a borda do último item */
+}
+
+.accordion-button {
+    background-color: #fdfdfd;
+    color: #000152;
+    cursor: pointer;
+    padding: 15px 25px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 1.1em;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion-button:hover {
+    background-color: #f7f7f7;
+    color: #007bff;
+}
+
+/* Indicador de abertura/fechamento (opcional, mas recomendado) */
+.accordion-button::after {
+    content: '\002B'; /* Unicode para sinal de mais (+) */
+    font-size: 1.5em;
+    color: #000152;
+    transition: transform 0.3s ease;
+}
+
+.accordion-button.active::after {
+    content: '\2212'; /* Unicode para sinal de menos (-) */
+    transform: rotate(0deg); /* Garante que o sinal de menos não rotacione */
+}
+
+
+.accordion-content {
+    padding: 0 25px;
+    background-color: white;
+    max-height: 0; /* Começa fechado */
+    overflow: hidden;
+    transition: max-height 0.3s ease-out; /* Transição suave para abrir/fechar */
+}
+
+.accordion-content.active {
+    max-height: 800px; /* Um valor grande o suficiente para o conteúdo. Ajuste conforme necessário. */
+    padding-top: 20px; /* Adiciona padding quando aberto */
+    padding-bottom: 20px; /* Adiciona padding quando aberto */
+}
+
+.accordion-content h2 {
+    color: #0056b3;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* Estilos para a seção de Formação Acadêmica */
+.mfa {
+    color: #001f3f;
+}
+
+.mfa h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: #003566;
+}
+
+.mfa h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #005792;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.mfa2 img {
+    width: 50px;
+    height: auto;
+    display: block;
+}
+
+.mfa ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.mfa li {
+    background-color: #f9f9f9;
+    margin-bottom: 8px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 1px solid #eee;
+}
+
+
+/* NOVOS ESTILOS PARA SKILLS */
+.skills-grid {
+    display: flex; /* Habilita o Flexbox para colocar soft e hard lado a lado */
+    gap: 30px; /* Espaço entre as colunas */
+    flex-wrap: wrap; /* Permite que as colunas quebrem linha em telas menores */
+    justify-content: center; /* Centraliza as colunas */
+}
+
+.soft-skills,
+.hard-skills {
+    flex: 1; /* Faz com que as colunas ocupem o espaço disponível igualmente */
+    min-width: 280px; /* Garante que não fiquem muito estreitas */
+    background-color: #f0f8ff; /* Fundo mais claro para as caixas de skill */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    color: #001f3f; /* Cor do texto dentro das caixas */
+}
+
+.soft-skills h3,
+.hard-skills h3 {
+    color: #0056b3;
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 10px;
+}
+
+.soft-skills ul {
+    list-style-type: disc; /* Bolinhas para soft skills */
+    padding-left: 20px;
+}
+
+.soft-skills li {
+    margin-bottom: 8px;
+    font-size: 1.05em;
+}
+
+.hard-skills {
+    display: grid; /* Grid para organizar os ícones e textos */
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* 2 ou mais colunas, flexíveis */
+    gap: 20px; /* Espaço entre os itens de skill */
+    justify-items: center; /* Centraliza os itens no grid */
+    align-items: start; /* Alinha os itens no topo */
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column; /* Ícone em cima, texto em baixo */
+    align-items: center; /* Centraliza o conteúdo */
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.skill-item:hover {
+    transform: translateY(-4px); /* Efeito suave ao passar o mouse */
+}
+
+.skill-item img {
+    width: 45px; /* Tamanho dos ícones */
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 8px;
+}
+
