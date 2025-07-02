@@ -287,3 +287,49 @@ body {
     margin-right: 5px; /* Adiciona um espaço à direita da imagem, separando-a do texto */
     vertical-align: middle; /* Ajuda a alinhar a imagem com o meio do texto */
 }
+
+@media (max-width: 768px) {
+    .header-profile {
+        padding: 20px;
+    }
+
+    .profile-photo {
+        width: 100px;
+        height: 100px;
+    }
+
+    .header-profile h1 {
+        font-size: 1.8em;
+    }
+
+    .title-role {
+        font-size: 1em;
+    }
+
+    .contact-info {
+        font-size: 0.9em;
+    }
+
+    .skills-grid {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .accordion-button {
+        font-size: 1em;
+        padding: 12px 20px;
+    }
+
+    .accordion-content {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .experience-item p img {
+        width: 30px;
+    }
+
+    .hard-skills {
+        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    }
+}
