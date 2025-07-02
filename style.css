@@ -3,7 +3,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 20px;
-    background: linear-gradient(to right, #001f3f, #003566, #005792, #0077b6);
+    background: linear-gradient(to right, #001f3f, #003566, #003566, #001f3f);
     color: #ffffff;
     display: flex;
     flex-direction: column;
@@ -13,7 +13,7 @@ body {
     gap: 30px;
 }
 
-/* --------- CABEÇALHO / PERFIL --------- */
+
 .header-profile {
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
@@ -30,7 +30,7 @@ body {
     height: 150px;
     border-radius: 8%;
     object-fit: cover;
-    border: 5px solid #a8cde6;
+    border: 3px solid #a8cde6;
     margin-bottom: 15px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
@@ -265,12 +265,26 @@ body {
 }
 
 .hard-skills {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
-    gap: 20px;
-    justify-items: center;
-    align-items: start;
+    flex: 1;
+    min-width: 280px;
+    background-color: #f0f8ff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    color: #001f3f;
 }
+
+
+.hard-skills ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.hard-skills li {
+    margin-bottom: 8px;
+    font-size: 1.05em;
+}
+
 
 .skill-item {
     display: flex;
@@ -309,4 +323,53 @@ body {
 
 ul, li {
     text-align: left;
+}
+
+
+
+/* --------- CERTIFICAÇÕES --------- */
+.certification-item {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #e0e0e0; /* Linha tracejada para separar, similar ao experience-item */
+}
+
+.certification-item:last-child {
+    border-bottom: none; /* Remove a borda do último item */
+}
+
+.certification-item h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: #003566; /* Cor similar aos títulos de experiência */
+}
+
+.certification-item p {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    color: #555; /* Cor de texto para detalhes */
+}
+
+.certification-item p img {
+    width: 30px; /* Tamanho do logo da instituição */
+    height: auto;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.credential-link {
+    display: inline-block;
+    background-color: #007bff; /* Cor do botão similar ao CV */
+    color: white;
+    padding: 8px 15px;
+    margin-top: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.credential-link:hover {
+    background-color: #0056b3; /* Cor do botão ao passar o mouse */
 }
