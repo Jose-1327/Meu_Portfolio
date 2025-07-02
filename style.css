@@ -1,3 +1,4 @@
+/* --------- GERAL --------- */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -12,7 +13,7 @@ body {
     gap: 30px;
 }
 
-/* Estilos para a Seção do Topo (header-profile) */
+/* --------- CABEÇALHO / PERFIL --------- */
 .header-profile {
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
@@ -53,12 +54,22 @@ body {
     line-height: 1.5;
 }
 
+/* --------- LINKS SOCIAIS --------- */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
 .social-links a {
-    display: inline-block;
-    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
     color: #ffffff;
     text-decoration: none;
     font-weight: bold;
+    font-size: 1em;
     transition: color 0.3s ease;
 }
 
@@ -67,6 +78,12 @@ body {
     text-decoration: underline;
 }
 
+.social-links img {
+    width: 20px;
+    height: 20px;
+}
+
+/* --------- BOTÃO DE CV (opcional) --------- */
 .cv-button {
     display: inline-block;
     background-color: #007bff;
@@ -83,6 +100,7 @@ body {
     background-color: #0056b3;
 }
 
+/* --------- DESCRIÇÃO PESSOAL (opcional) --------- */
 .personal-description {
     font-size: 1.1em;
     color: #b3d9ff;
@@ -90,7 +108,7 @@ body {
     line-height: 1.6;
 }
 
-/* CONTAINER GERAL */
+/* --------- CONTAINER GERAL --------- */
 .container {
     background-color: #ffffff;
     border-radius: 10px;
@@ -99,15 +117,17 @@ body {
     max-width: 900px;
     overflow: hidden;
     color: #333;
+    margin: 0 auto; /* CENTRALIZA */
 }
 
-/* Estilos para o Accordion (Sanfona) */
+
+/* --------- ACORDEÃO (SEÇÕES) --------- */
 .accordion-item {
     border-bottom: 1px solid #e0e0e0;
 }
 
 .accordion-item:last-child {
-    border-bottom: none; /* Remove a borda do último item */
+    border-bottom: none;
 }
 
 .accordion-button {
@@ -132,19 +152,17 @@ body {
     color: #007bff;
 }
 
-/* Indicador de abertura/fechamento (opcional, mas recomendado) */
 .accordion-button::after {
-    content: '\002B'; /* Unicode para sinal de mais (+) */
+    content: '\002B';
     font-size: 1.5em;
     color: #000152;
     transition: transform 0.3s ease;
 }
 
 .accordion-button.active::after {
-    content: '\2212'; /* Unicode para sinal de menos (-) */
-    transform: rotate(0deg); /* Garante que o sinal de menos não rotacione */
+    content: '\2212';
+    transform: rotate(0deg);
 }
-
 
 .accordion-content {
     padding: 0 25px;
@@ -168,7 +186,7 @@ body {
     padding-bottom: 10px;
 }
 
-/* Estilos para a seção de Formação Acadêmica */
+/* --------- FORMAÇÃO ACADÊMICA --------- */
 .mfa {
     color: #001f3f;
 }
@@ -207,13 +225,12 @@ body {
     border: 1px solid #eee;
 }
 
-
-/* NOVOS ESTILOS PARA SKILLS */
+/* --------- SKILLS --------- */
 .skills-grid {
-    display: flex; /* Habilita o Flexbox para colocar soft e hard lado a lado */
-    gap: 30px; /* Espaço entre as colunas */
-    flex-wrap: wrap; /* Permite que as colunas quebrem linha em telas menores */
-    justify-content: center; /* Centraliza as colunas */
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .soft-skills,
@@ -248,43 +265,48 @@ body {
 }
 
 .hard-skills {
-    display: grid; /* Grid para organizar os ícones e textos */
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* 2 ou mais colunas, flexíveis */
-    gap: 20px; /* Espaço entre os itens de skill */
-    justify-items: center; /* Centraliza os itens no grid */
-    align-items: start; /* Alinha os itens no topo */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    align-items: start;
 }
 
 .skill-item {
     display: flex;
-    flex-direction: column; /* Ícone em cima, texto em baixo */
-    align-items: center; /* Centraliza o conteúdo */
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    padding: 10px;
+    padding: 5px;
     border-radius: 5px;
+    transition: transform 0.2s ease;
 }
 
 .skill-item:hover {
-    transform: translateY(-4px); /* Efeito suave ao passar o mouse */
+    transform: translateY(-4px);
 }
 
 .skill-item img {
-    width: 45px; /* Tamanho dos ícones */
+    width: 45px;
     height: 60px;
     object-fit: contain;
     margin-bottom: 8px;
 }
 
+/* --------- EXPERIÊNCIAS --------- */
 .experience-item p {
-    display: flex; /* Transforma o parágrafo em um contêiner flexível */
-    align-items: center; /* Alinha os itens (imagem e texto) verticalmente ao centro */
-    margin-bottom: 5px; /* Ajuste esta margem se precisar de mais ou menos espaço abaixo do parágrafo */
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
 }
 
 .experience-item p img {
-    width: 50px; /* Define a largura da imagem. Ajuste este valor para diminuir ou aumentar */
-    height: auto; /* Mantém a proporção da imagem */
-    margin-right: 5px; /* Adiciona um espaço à direita da imagem, separando-a do texto */
-    vertical-align: middle; /* Ajuda a alinhar a imagem com o meio do texto */
+    width: 50px;
+    height: auto;
+    margin-right: 5px;
+    vertical-align: middle;
 }
 
+ul, li {
+    text-align: left;
+}
