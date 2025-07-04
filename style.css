@@ -374,3 +374,213 @@ ul, li {
     background-color: #0056b3; /* Cor do botão ao passar o mouse */
 }
 
+
+
+
+
+
+
+/* Media Queries para dispositivos menores (ex: celulares) */
+@media (max-width: 768px) {
+    /* Ajustes para o cabeçalho e foto de perfil */
+    .header-profile {
+        padding: 20px; /* Reduz o preenchimento do cabeçalho */
+        width: 95%; /* Aumenta um pouco a largura para ocupar mais espaço em telas pequenas */
+    }
+
+    .profile-photo {
+        width: 100px; /* Diminui o tamanho da foto de perfil */
+        height: 100px;
+        border-width: 3px; /* Diminui a borda da foto */
+    }
+
+    .header-profile h1 {
+        font-size: 1.8em; /* Reduz o tamanho da fonte do seu nome */
+    }
+
+    .title-role {
+        font-size: 1em; /* Reduz o tamanho da fonte do cargo */
+    }
+
+    .contact-info {
+        font-size: 0.9em; /* Reduz o tamanho da fonte das informações de contato */
+        line-height: 1.3;
+    }
+
+    .contact-info p {
+        margin-bottom: 5px; /* Reduz o espaçamento entre as linhas de contato */
+    }
+
+    /* Ajustes para os links sociais */
+    .social-links {
+        gap: 15px; /* Reduz o espaçamento entre os ícones sociais */
+    }
+
+    .social-links a {
+        font-size: 0.9em; /* Reduz o tamanho da fonte dos links sociais */
+    }
+
+    .social-links img {
+        width: 18px; /* Diminui o tamanho dos ícones sociais */
+        height: 18px;
+    }
+
+    /* Ajustes para o contêiner principal */
+    .container {
+        width: 95%; /* Ocupa mais largura em telas pequenas */
+        padding: 0; /* Remove padding extra no container para mobile */
+    }
+
+    /* Ajustes para os botões do acordeão */
+    .accordion-button {
+        padding: 12px 20px; /* Reduz o preenchimento do botão */
+        font-size: 1em; /* Reduz o tamanho da fonte do botão */
+    }
+
+    .accordion-button::after {
+        font-size: 1.2em; /* Diminui o tamanho do ícone de +/- */
+    }
+
+    /* Ajustes para o conteúdo do acordeão */
+    .accordion-content {
+        padding: 0 20px; /* Reduz o preenchimento lateral do conteúdo */
+    }
+
+    .accordion-content h2 {
+        font-size: 1.3em; /* Reduz o tamanho dos títulos de seção */
+        margin-bottom: 15px;
+        padding-bottom: 8px;
+    }
+
+    .personal-description {
+        font-size: 0.95em; /* Ajusta a fonte da descrição pessoal */
+    }
+
+    /* Ajustes para as seções de habilidades e formação */
+    .skills-grid {
+        flex-direction: column; /* Coloca as soft e hard skills em coluna */
+        gap: 20px; /* Reduz o espaçamento entre elas */
+    }
+
+    .soft-skills,
+    .hard-skills {
+        min-width: unset; /* Remove a largura mínima para flexibilidade */
+        padding: 15px; /* Reduz o preenchimento interno */
+    }
+
+    .soft-skills h3,
+    .hard-skills h3 {
+        font-size: 1.1em; /* Reduz o tamanho dos títulos de soft/hard skills */
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+    }
+
+    .soft-skills li,
+    .hard-skills li {
+        font-size: 0.95em; /* Reduz o tamanho da fonte das listas de habilidades */
+    }
+
+    .skill-item img {
+        width: 35px; /* Diminui o tamanho dos ícones de hard skills */
+        height: 45px;
+    }
+
+    .skill-item p {
+        font-size: 0.85em; /* Diminui a fonte do texto abaixo dos ícones de hard skills */
+    }
+
+    /* Ajustes para a seção de formação acadêmica */
+    .mfa h3 {
+        font-size: 1.1em; /* Reduz a fonte do título do curso */
+    }
+
+    .mfa h4 {
+        font-size: 0.9em; /* Reduz a fonte do nome da instituição */
+    }
+
+    .mfa2 img {
+        width: 35px; /* Diminui o tamanho da logo da instituição de ensino */
+    }
+
+    /* Ajustes para as experiências profissionais */
+    .experience-item h3 {
+        font-size: 1.1em; /* Reduz a fonte do título da experiência */
+    }
+
+    .experience-item p {
+        font-size: 0.9em; /* Reduz a fonte dos detalhes da experiência */
+        margin-bottom: 3px;
+    }
+
+    .experience-item p img {
+        width: 30px; /* Diminui o tamanho das logos das empresas/ícones */
+    }
+
+    .experience-item ul {
+        padding-left: 15px; /* Ajusta o padding da lista */
+    }
+
+    .experience-item li {
+        font-size: 0.9em; /* Reduz a fonte dos itens da lista de atividades */
+    }
+
+    /* Ajustes para certificações */
+    .certification-item h3 {
+        font-size: 1.1em;
+    }
+    .certification-item p {
+        font-size: 0.9em;
+    }
+    .certification-item p img {
+        width: 25px; /* Diminui logos das certificações */
+    }
+    .credential-link {
+        font-size: 0.9em;
+    }
+}
+
+/* Opcional: Media Query para telas ainda menores (ex: smartphones muito pequenos) */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .header-profile {
+        padding: 15px;
+    }
+
+    .profile-photo {
+        width: 80px;
+        height: 80px;
+    }
+
+    .header-profile h1 {
+        font-size: 1.5em;
+    }
+
+    .title-role {
+        font-size: 0.9em;
+    }
+
+    .contact-info {
+        font-size: 0.8em;
+    }
+
+    .accordion-button {
+        font-size: 0.9em;
+        padding: 10px 15px;
+    }
+
+    .accordion-content h2 {
+        font-size: 1.1em;
+    }
+
+    .personal-description,
+    .soft-skills li,
+    .hard-skills li,
+    .experience-item p,
+    .experience-item li,
+    .certification-item p {
+        font-size: 0.85em;
+    }
+}
