@@ -392,7 +392,7 @@ ul, li {
     .profile-photo {
         width: 100px; /* Diminui o tamanho da foto de perfil */
         height: 100px;
-        border-width: 3px; /* Diminui a borda da foto */
+        border-width: 2px; /* Diminui a borda da foto */
     }
 
     .header-profile h1 {
