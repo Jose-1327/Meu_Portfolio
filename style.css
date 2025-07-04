@@ -264,6 +264,7 @@ body {
     font-size: 1.05em;
 }
 
+/* Removido ul/li direto de .hard-skills, agora usamos .hard-skills-grid */
 .hard-skills {
     flex: 1;
     min-width: 280px;
@@ -274,15 +275,13 @@ body {
     color: #001f3f;
 }
 
-
-.hard-skills ul {
-    list-style-type: disc;
-    padding-left: 20px;
-}
-
-.hard-skills li {
-    margin-bottom: 8px;
-    font-size: 1.05em;
+/* NOVO: Estilos para o grid de Hard Skills */
+.hard-skills-grid {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    gap: 15px; /* Espaço entre os itens (horizontal e vertical) */
+    padding: 10px; /* Opcional: Adiciona um pouco de padding interno */
 }
 
 
@@ -291,9 +290,11 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 5px;
+    padding: 5px; /* Reduza o padding se quiser mais próximos */
     border-radius: 5px;
     transition: transform 0.2s ease;
+    width: 80px; /* Exemplo: se 3 itens por linha, 100% / 3 = 33.33%, mas com gap precisa de ajuste */
+    flex-shrink: 0; /* Impede que os itens encolham */
 }
 
 .skill-item:hover {
@@ -301,10 +302,15 @@ body {
 }
 
 .skill-item img {
-    width: 45px;
-    height: 60px;
+    width: 40px; /* Reduz o tamanho do ícone */
+    height: 40px; /* Garante que a altura seja a mesma que a largura para ícones quadrados */
     object-fit: contain;
-    margin-bottom: 8px;
+    margin-bottom: 5px; /* Reduz o espaçamento abaixo do ícone */
+}
+
+.skill-item p {
+    font-size: 0.85em; /* Reduz a fonte do texto do skill-item */
+    margin-top: 0;
 }
 
 /* --------- EXPERIÊNCIAS --------- */
@@ -373,11 +379,6 @@ ul, li {
 .credential-link:hover {
     background-color: #0056b3; /* Cor do botão ao passar o mouse */
 }
-
-
-
-
-
 
 
 /* Media Queries para dispositivos menores (ex: celulares) */
@@ -475,19 +476,25 @@ ul, li {
         padding-bottom: 5px;
     }
 
-    .soft-skills li,
-    .hard-skills li {
+    .soft-skills li {
         font-size: 0.95em; /* Reduz o tamanho da fonte das listas de habilidades */
     }
 
+    /* Ajustes de Hard Skills dentro da Media Query */
+    .hard-skills-grid { /* Ajusta o grid para telas menores */
+        gap: 10px; /* Reduz ainda mais o gap em telas muito pequenas */
+    }
+    .skill-item {
+        width: 70px; /* Ajusta a largura do item para caber mais em telas pequenas */
+    }
     .skill-item img {
-        width: 35px; /* Diminui o tamanho dos ícones de hard skills */
-        height: 45px;
+        width: 35px; /* Ajusta o tamanho do ícone em telas pequenas */
+        height: 35px;
+    }
+    .skill-item p {
+        font-size: 0.8em; /* Diminui a fonte do texto abaixo dos ícones de hard skills para telas menores */
     }
 
-    .skill-item p {
-        font-size: 0.85em; /* Diminui a fonte do texto abaixo dos ícones de hard skills */
-    }
 
     /* Ajustes para a seção de formação acadêmica */
     .mfa h3 {
@@ -542,16 +549,16 @@ ul, li {
 /* Opcional: Media Query para telas ainda menores (ex: smartphones muito pequenos) */
 @media (max-width: 480px) {
     body {
-        padding: 10px;
+        padding: 12px;
     }
 
     .header-profile {
-        padding: 15px;
+        padding: 10px;
     }
 
     .profile-photo {
-        width: 80px;
-        height: 80px;
+        width: 105px;
+        height: 105px;
     }
 
     .header-profile h1 {
@@ -577,10 +584,24 @@ ul, li {
 
     .personal-description,
     .soft-skills li,
-    .hard-skills li,
     .experience-item p,
     .experience-item li,
     .certification-item p {
         font-size: 0.85em;
+    }
+
+    /* Ajustes adicionais para hard-skills-grid em telas muito pequenas */
+    .hard-skills-grid {
+        gap: 8px;
+    }
+    .skill-item {
+        width: 65px; /* Permite mais itens por linha ou um layout mais compacto */
+    }
+    .skill-item img {
+        width: 30px;
+        height: 30px;
+    }
+    .skill-item p {
+        font-size: 0.75em;
     }
 }
