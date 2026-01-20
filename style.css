@@ -614,3 +614,7 @@ ul, li {
 
 
 
+.img_form {
+    width: 300px;
+    border-radius: 150px; /* Quanto maior o número, mais redondo */
+}
