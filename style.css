@@ -770,3 +770,128 @@ ul, li {
     0% { bottom: -100%; }
     50%, 100% { bottom: 100%; }
 }
+
+
+
+
+
+
+
+/* --------- GERAL RESPONSIVO --------- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(to right, #001f3f, #003566, #003566, #001f3f);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    gap: 20px;
+}
+
+.header-profile {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    width: 90%;
+    max-width: 900px;
+    padding: 20px;
+    text-align: center;
+}
+
+.personal-description {
+    font-size: clamp(1em, 3vw, 1.1em); /* Ajusta o texto conforme a tela */
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 10px auto;
+}
+
+/* --------- GRID DE SERVIÇOS --------- */
+.container-servicos {
+    width: 90%;
+    max-width: 900px;
+    text-align: center;
+}
+
+.hard-skills-grid {
+    display: flex;
+    flex-wrap: wrap; /* Faz os itens pularem linha no celular */
+    justify-content: center;
+    gap: 15px;
+    padding: 20px 0;
+}
+
+.skill-item {
+    flex: 1 1 120px; /* Base de 120px, mas cresce se precisar */
+    max-width: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s;
+}
+
+.skill-item img { width: 50px; height: 50px; margin-bottom: 10px; }
+
+/* --------- LISTA DE VANTAGENS --------- */
+.lista-vantagens {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    display: inline-block; /* Mantém centralizado mas alinhado à esquerda */
+}
+
+.lista-vantagens li {
+    margin-bottom: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px;
+    border-left: 4px solid #00ffcc;
+}
+
+/* --------- BOTÃO COM RASTRO DE LUZ (CSS ISOLADO) --------- */
+.botao_consultoria {
+    margin: 40px 0;
+}
+
+.botao_consultoria a {
+    position: relative;
+    display: inline-block;
+    padding: 20px 40px;
+    color: #00ffcc;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-decoration: none;
+    font-weight: bold;
+    overflow: hidden;
+    transition: 0.5s;
+    background: rgba(0,0,0,0.3);
+}
+
+.botao_consultoria a:hover {
+    background: #00ffcc;
+    color: #001f3f;
+    box-shadow: 0 0 50px #00ffcc;
+}
+
+.botao_consultoria a span { position: absolute; display: block; }
+
+/* Animações das 4 pontas */
+.botao_consultoria a span:nth-child(1) { top: 0; left: -100%; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, #00ffcc); animation: luz1 2s linear infinite; }
+@keyframes luz1 { 0% { left: -100%; } 50%,100% { left: 100%; } }
+
+.botao_consultoria a span:nth-child(2) { top: -100%; right: 0; width: 2px; height: 100%; background: linear-gradient(180deg, transparent, #00ffcc); animation: luz2 2s linear infinite; animation-delay: 0.5s; }
+@keyframes luz2 { 0% { top: -100%; } 50%,100% { top: 100%; } }
+
+.botao_consultoria a span:nth-child(3) { bottom: 0; right: -100%; width: 100%; height: 2px; background: linear-gradient(270deg, transparent, #00ffcc); animation: luz3 2s linear infinite; animation-delay: 1s; }
+@keyframes luz3 { 0% { right: -100%; } 50%,100% { right: 100%; } }
+
+.botao_consultoria a span:nth-child(4) { bottom: -100%; left: 0; width: 2px; height: 100%; background: linear-gradient(360deg, transparent, #00ffcc); animation: luz4 2s linear infinite; animation-delay: 1.5s; }
+@keyframes luz4 { 0% { bottom: -100%; } 50%,100% { bottom: 100%; } }
+
+/* --------- MEDIA QUERY PARA CELULAR (TELA PEQUENA) --------- */
+@media (max-width: 600px) {
+    body { padding: 10px; }
+    .header-profile h1 { font-size: 1.5rem; }
+    .botao_consultoria a { padding: 15px 25px; font-size: 0.9rem; width: 80%; }
+    .skill-item { flex: 1 1 100px; }
+}
