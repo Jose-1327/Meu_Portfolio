@@ -1,905 +1,1554 @@
-/* --------- GERAL --------- */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 20px;
-    background: linear-gradient(to right, #001f3f, #003566, #003566, #001f3f);
-    color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    min-height: 100vh;
-    gap: 30px;
+/* =========================================================
+   JOSÉ MORAIS - PORTFÓLIO
+   NOVO VISUAL
+   Conteúdo do HTML preservado
+========================================================= */
+
+:root {
+    --bg-1: #030914;
+    --bg-2: #07182b;
+    --bg-3: #0a2440;
+
+    --primary: #00d9ff;
+    --primary-dark: #008fb3;
+    --secondary: #4f8cff;
+
+    --text: #f3f8ff;
+    --text-muted: #9db1c5;
+
+    --card: rgba(11, 28, 48, 0.80);
+    --card-light: #ffffff;
+
+    --border: rgba(0, 217, 255, 0.18);
+
+    --shadow:
+        0 20px 60px rgba(0, 0, 0, 0.35);
+
+    --radius: 20px;
 }
 
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 25px 15px 50px;
+
+    min-height: 100vh;
+
+    font-family:
+        'Segoe UI',
+        Tahoma,
+        Geneva,
+        Verdana,
+        sans-serif;
+
+    color: var(--text);
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(0, 217, 255, 0.10),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 90% 15%,
+            rgba(79, 140, 255, 0.13),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            var(--bg-1),
+            var(--bg-2),
+            var(--bg-3)
+        );
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 22px;
+}
+
+
+/* =========================================================
+   GRID NO FUNDO
+========================================================= */
+
+body::before {
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: 0.035;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,0.5) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.5) 1px,
+            transparent 1px
+        );
+
+    background-size: 40px 40px;
+
+    z-index: -1;
+}
+
+
+/* =========================================================
+   CABEÇALHO
+========================================================= */
 
 .header-profile {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+
     width: 90%;
+
     max-width: 900px;
-    padding: 30px;
+
+    padding: 40px 30px;
+
     text-align: center;
+
     color: #ffffff;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(15, 39, 67, 0.88),
+            rgba(4, 18, 33, 0.88)
+        );
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 24px;
+
+    box-shadow: var(--shadow);
+
+    backdrop-filter: blur(16px);
+
+    overflow: hidden;
 }
+
+
+/* brilho superior */
+
+.header-profile::before {
+    content: "";
+
+    position: absolute;
+
+    top: -120px;
+
+    left: 50%;
+
+    width: 260px;
+
+    height: 260px;
+
+    transform: translateX(-50%);
+
+    border-radius: 50%;
+
+    background:
+        rgba(0, 217, 255, 0.12);
+
+    filter: blur(60px);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   FOTO
+========================================================= */
 
 .profile-photo {
     width: 150px;
+
     height: 150px;
-    border-radius: 8%;
+
     object-fit: cover;
-    border: 3px solid #a8cde6;
+
+    border-radius: 50%;
+
+    border:
+        3px solid
+        rgba(0, 217, 255, 0.70);
+
     margin-bottom: 15px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+
+    box-shadow:
+        0 0 0 6px rgba(0,217,255,0.04),
+        0 0 30px rgba(0,217,255,0.25);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
+
+.profile-photo:hover {
+    transform: scale(1.04);
+
+    box-shadow:
+        0 0 0 8px rgba(0,217,255,0.05),
+        0 0 45px rgba(0,217,255,0.35);
+}
+
+
+/* =========================================================
+   NOME
+========================================================= */
 
 .header-profile h1 {
-    font-size: 2.5em;
-    color: #e6f2ff;
     margin-bottom: 5px;
+
+    font-size: 2.7em;
+
+    font-weight: 700;
+
+    color: #ffffff;
+
+    letter-spacing: -1px;
 }
+
+
+/* =========================================================
+   CARGO
+========================================================= */
 
 .title-role {
-    font-size: 1.3em;
-    color: #cce0ff;
-    margin-bottom: 15px;
+    margin-bottom: 16px;
+
+    font-size: 1.25em;
+
+    color: var(--primary);
 }
+
+
+/* =========================================================
+   CONTATO
+========================================================= */
 
 .contact-info {
-    font-size: 1em;
-    color: #b3d9ff;
-    margin-bottom: 20px;
-    line-height: 1.5;
+    margin-bottom: 22px;
+
+    font-size: 0.95em;
+
+    line-height: 1.7;
+
+    color: var(--text-muted);
 }
 
-/* --------- LINKS SOCIAIS --------- */
+
+/* =========================================================
+   REDES SOCIAIS
+========================================================= */
+
 .social-links {
     display: flex;
+
     justify-content: center;
-    gap: 30px;
+
+    align-items: center;
+
     flex-wrap: wrap;
+
+    gap: 12px;
 }
 
 .social-links a {
     display: flex;
+
     align-items: center;
+
     gap: 8px;
-    color: #ffffff;
+
+    padding: 10px 16px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.10);
+
+    border-radius: 999px;
+
+    background:
+        rgba(255,255,255,0.04);
+
+    color: #e5f4ff;
+
     text-decoration: none;
-    font-weight: bold;
-    font-size: 1em;
-    transition: color 0.3s ease;
+
+    font-weight: 600;
+
+    font-size: 0.9em;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
 .social-links a:hover {
-    color: #e0f2ff;
-    text-decoration: underline;
+    transform: translateY(-3px);
+
+    color: #ffffff;
+
+    background:
+        rgba(0,217,255,0.08);
+
+    border-color:
+        rgba(0,217,255,0.40);
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,217,255,0.12);
 }
 
 .social-links img {
     width: 20px;
+
     height: 20px;
+
+    object-fit: contain;
 }
 
-/* --------- BOTÃO DE CV (opcional) --------- */
-.cv-button {
-    display: inline-block;
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    margin-top: 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
 
-.cv-button:hover {
-    background-color: #0056b3;
-}
+/* =========================================================
+   CONTAINER PRINCIPAL
+========================================================= */
 
-/* --------- DESCRIÇÃO PESSOAL (opcional) --------- */
-.personal-description {
-    font-size: 1.1em;
-    color: #b3d9ff;
-    margin-top: 20px;
-    line-height: 1.6;
-}
-
-/* --------- CONTAINER GERAL --------- */
 .container {
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     width: 90%;
+
     max-width: 900px;
+
+    margin: 0 auto;
+
     overflow: hidden;
-    color: #333;
-    margin: 0 auto; /* CENTRALIZA */
+
+    color: #1b2a38;
+
+    background:
+        rgba(255,255,255,0.98);
+
+    border-radius: 22px;
+
+    box-shadow: var(--shadow);
 }
 
 
-/* --------- ACORDEÃO (SEÇÕES) --------- */
+/* =========================================================
+   ACORDEÃO
+========================================================= */
+
 .accordion-item {
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom:
+        1px solid
+        #e4ebf1;
 }
 
 .accordion-item:last-child {
     border-bottom: none;
 }
 
+
 .accordion-button {
-    background-color: #fdfdfd;
-    color: #000152;
-    cursor: pointer;
-    padding: 15px 25px;
     width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 1.1em;
-    font-weight: 500;
-    transition: background-color 0.3s ease;
+
+    padding: 20px 25px;
+
     display: flex;
-    justify-content: space-between;
+
     align-items: center;
+
+    justify-content: space-between;
+
+    border: none;
+
+    outline: none;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    background: #ffffff;
+
+    color: #092641;
+
+    font-size: 1.08em;
+
+    font-weight: 600;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease;
 }
 
 .accordion-button:hover {
-    background-color: #f7f7f7;
-    color: #007bff;
+    background: #f3f9fd;
+
+    color: #007da9;
 }
+
+
+/* ÍCONE + */
 
 .accordion-button::after {
-    content: '\002B';
+    content: "+";
+
     font-size: 1.5em;
-    color: #000152;
-    transition: transform 0.3s ease;
+
+    color: #009ac2;
+
+    transition: 0.25s ease;
 }
+
+
+/* ÍCONE - */
 
 .accordion-button.active::after {
-    content: '\2212';
-    transform: rotate(0deg);
+    content: "−";
+
+    color: var(--primary-dark);
 }
 
+
+/* =========================================================
+   CONTEÚDO DO ACORDEÃO
+========================================================= */
+
 .accordion-content {
-    padding: 0 25px;
-    background-color: white;
-    max-height: 0; /* Começa fechado */
+    max-height: 0;
+
     overflow: hidden;
-    transition: max-height 0.3s ease-out; /* Transição suave para abrir/fechar */
+
+    padding:
+        0 25px;
+
+    background: #ffffff;
+
+    transition:
+        max-height 0.35s ease,
+        padding 0.35s ease;
 }
 
 .accordion-content.active {
-    max-height: 800px; /* Um valor grande o suficiente para o conteúdo. Ajuste conforme necessário. */
-    padding-top: 20px; /* Adiciona padding quando aberto */
-    padding-bottom: 20px; /* Adiciona padding quando aberto */
+    padding-top: 25px;
+
+    padding-bottom: 25px;
 }
+
 
 .accordion-content h2 {
-    color: #0056b3;
     margin-top: 0;
+
     margin-bottom: 20px;
-    border-bottom: 1px solid #eee;
+
     padding-bottom: 10px;
+
+    color: #075985;
+
+    font-size: 1.45em;
+
+    border-bottom:
+        1px solid
+        #e4edf4;
 }
 
-/* --------- FORMAÇÃO ACADÊMICA --------- */
+
+/* =========================================================
+   FORMAÇÃO
+========================================================= */
+
 .mfa {
-    color: #001f3f;
+    color: #143149;
 }
 
 .mfa h3 {
     margin-top: 0;
-    margin-bottom: 5px;
-    color: #003566;
+
+    margin-bottom: 6px;
+
+    color: #0a2c48;
 }
 
 .mfa h4 {
-    margin-top: 0;
-    margin-bottom: 15px;
-    color: #005792;
     display: flex;
+
     align-items: center;
+
     gap: 10px;
+
+    margin-top: 0;
+
+    margin-bottom: 15px;
+
+    color: #28739b;
 }
 
 .mfa2 img {
     width: 50px;
+
     height: auto;
+
     display: block;
 }
 
+
 .mfa ul {
-    list-style-type: none;
+    list-style: none;
+
     padding: 0;
 }
 
 .mfa li {
-    background-color: #f9f9f9;
     margin-bottom: 8px;
-    padding: 10px 15px;
-    border-radius: 5px;
-    border: 1px solid #eee;
+
+    padding: 11px 15px;
+
+    border-radius: 9px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f6fbff,
+            #eef6fb
+        );
+
+    border:
+        1px solid
+        #e1ebf2;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
 }
 
-/* --------- SKILLS --------- */
+.mfa li:hover {
+    transform: translateX(4px);
+
+    border-color:
+        rgba(0,160,200,0.30);
+}
+
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
 .skills-grid {
     display: flex;
-    gap: 30px;
+
     flex-wrap: wrap;
+
+    gap: 20px;
+
     justify-content: center;
 }
 
+
 .soft-skills,
 .hard-skills {
-    flex: 1; /* Faz com que as colunas ocupem o espaço disponível igualmente */
-    min-width: 280px; /* Garante que não fiquem muito estreitas */
-    background-color: #f0f8ff; /* Fundo mais claro para as caixas de skill */
+    flex: 1;
+
+    min-width: 280px;
+
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    color: #001f3f; /* Cor do texto dentro das caixas */
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f5faff,
+            #edf6fc
+        );
+
+    border:
+        1px solid
+        #dce8f1;
+
+    box-shadow:
+        0 6px 18px
+        rgba(10,50,80,0.05);
+
+    color: #12304a;
 }
+
 
 .soft-skills h3,
 .hard-skills h3 {
-    color: #0056b3;
     margin-top: 0;
+
     margin-bottom: 15px;
-    text-align: center;
-    border-bottom: 1px solid #e0e0e0;
+
     padding-bottom: 10px;
+
+    color: #075985;
+
+    text-align: center;
+
+    border-bottom:
+        1px solid
+        #dce7ef;
 }
 
+
 .soft-skills ul {
-    list-style-type: disc; /* Bolinhas para soft skills */
     padding-left: 20px;
 }
 
 .soft-skills li {
     margin-bottom: 8px;
-    font-size: 1.05em;
+
+    font-size: 1em;
 }
 
-/* Removido ul/li direto de .hard-skills, agora usamos .hard-skills-grid */
-.hard-skills {
-    flex: 1;
-    min-width: 280px;
-    background-color: #f0f8ff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    color: #001f3f;
-}
 
-/* NOVO: Estilos para o grid de Hard Skills */
+/* =========================================================
+   HARD SKILLS
+========================================================= */
+
 .hard-skills-grid {
     display: flex;
-    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha */
-    justify-content: center; /* Centraliza os itens horizontalmente */
-    gap: 15px; /* Espaço entre os itens (horizontal e vertical) */
-    padding: 10px; /* Opcional: Adiciona um pouco de padding interno */
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    padding: 5px;
 }
 
-
 .skill-item {
+    width: 85px;
+
     display: flex;
+
     flex-direction: column;
+
     align-items: center;
+
+    justify-content: center;
+
     text-align: center;
-    padding: 5px; /* Reduza o padding se quiser mais próximos */
-    border-radius: 5px;
-    transition: transform 0.2s ease;
-    width: 80px; /* Exemplo: se 3 itens por linha, 100% / 3 = 33.33%, mas com gap precisa de ajuste */
-    flex-shrink: 0; /* Impede que os itens encolham */
+
+    padding: 8px;
+
+    border-radius: 12px;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
 }
 
 .skill-item:hover {
-    transform: translateY(-4px);
+    transform: translateY(-5px);
+
+    background:
+        rgba(0,217,255,0.08);
 }
 
 .skill-item img {
-    width: 40px; /* Reduz o tamanho do ícone */
-    height: 40px; /* Garante que a altura seja a mesma que a largura para ícones quadrados */
+    width: 40px;
+
+    height: 40px;
+
     object-fit: contain;
-    margin-bottom: 5px; /* Reduz o espaçamento abaixo do ícone */
+
+    margin-bottom: 6px;
 }
 
 .skill-item p {
-    font-size: 0.85em; /* Reduz a fonte do texto do skill-item */
     margin-top: 0;
+
+    font-size: 0.82em;
+
+    line-height: 1.2;
 }
 
-/* --------- EXPERIÊNCIAS --------- */
+
+/* =========================================================
+   EXPERIÊNCIAS
+========================================================= */
+
+.experience-item {
+    margin-bottom: 18px;
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f7fbfe,
+            #eef6fb
+        );
+
+    border:
+        1px solid
+        #dfeaf2;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.experience-item:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(10,55,85,0.08);
+
+    border-color:
+        #c4e2ed;
+}
+
+
+.experience-item h3 {
+    margin-top: 0;
+
+    margin-bottom: 12px;
+
+    color: #082d49;
+}
+
+
 .experience-item p {
     display: flex;
+
     align-items: center;
-    margin-bottom: 5px;
+
+    margin-bottom: 7px;
+
+    color: #536c7e;
+
+    line-height: 1.5;
 }
 
 .experience-item p img {
-    width: 50px;
+    width: 40px;
+
     height: auto;
-    margin-right: 5px;
-    vertical-align: middle;
+
+    margin-right: 7px;
 }
 
-ul, li {
+.experience-item ul {
+    padding-left: 20px;
+
+    margin-top: 12px;
+}
+
+.experience-item li {
+    margin-bottom: 5px;
+
+    line-height: 1.5;
+}
+
+
+ul,
+li {
     text-align: left;
 }
 
 
+/* =========================================================
+   CERTIFICAÇÕES
+========================================================= */
 
-/* --------- CERTIFICAÇÕES --------- */
 .certification-item {
-    margin-bottom: 20px;
-    padding-bottom: 15px;
-    border-bottom: 1px dashed #e0e0e0; /* Linha tracejada para separar, similar ao experience-item */
+    margin-bottom: 18px;
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f8fbfe,
+            #eff6fb
+        );
+
+    border:
+        1px solid
+        #dfe9f1;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
-.certification-item:last-child {
-    border-bottom: none; /* Remove a borda do último item */
+.certification-item:hover {
+    transform: translateY(-3px);
+
+    border-color:
+        #b9ddea;
+
+    box-shadow:
+        0 8px 22px
+        rgba(10,55,85,0.07);
 }
 
 .certification-item h3 {
     margin-top: 0;
-    margin-bottom: 5px;
-    color: #003566; /* Cor similar aos títulos de experiência */
+
+    margin-bottom: 8px;
+
+    color: #0b3553;
 }
 
 .certification-item p {
     display: flex;
+
     align-items: center;
-    margin-bottom: 5px;
-    color: #555; /* Cor de texto para detalhes */
+
+    margin-bottom: 6px;
+
+    color: #566f80;
 }
 
 .certification-item p img {
-    width: 30px; /* Tamanho do logo da instituição */
+    width: 30px;
+
     height: auto;
+
+    max-height: 35px;
+
+    object-fit: contain;
+
     margin-right: 10px;
-    vertical-align: middle;
 }
+
+
+/* =========================================================
+   BOTÕES DE CREDENCIAL
+========================================================= */
 
 .credential-link {
     display: inline-block;
-    background-color: #007bff; /* Cor do botão similar ao CV */
-    color: white;
-    padding: 8px 15px;
+
     margin-top: 10px;
-    border-radius: 5px;
+
+    padding: 9px 16px;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0077a8,
+            #00a9d4
+        );
+
+    color: #ffffff;
+
     text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+
+    font-weight: 600;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
 .credential-link:hover {
-    background-color: #0056b3; /* Cor do botão ao passar o mouse */
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(0,130,180,0.25);
 }
 
 
-/* Media Queries para dispositivos menores (ex: celulares) */
-@media (max-width: 768px) {
-    /* Ajustes para o cabeçalho e foto de perfil */
-    .header-profile {
-        padding: 20px; /* Reduz o preenchimento do cabeçalho */
-        width: 95%; /* Aumenta um pouco a largura para ocupar mais espaço em telas pequenas */
-    }
-
-    .profile-photo {
-        width: 100px; /* Diminui o tamanho da foto de perfil */
-        height: 100px;
-        border-width: 2px; /* Diminui a borda da foto */
-    }
-
-    .header-profile h1 {
-        font-size: 1.8em; /* Reduz o tamanho da fonte do seu nome */
-    }
-
-    .title-role {
-        font-size: 1em; /* Reduz o tamanho da fonte do cargo */
-    }
-
-    .contact-info {
-        font-size: 0.9em; /* Reduz o tamanho da fonte das informações de contato */
-        line-height: 1.3;
-    }
-
-    .contact-info p {
-        margin-bottom: 5px; /* Reduz o espaçamento entre as linhas de contato */
-    }
-
-    /* Ajustes para os links sociais */
-    .social-links {
-        gap: 15px; /* Reduz o espaçamento entre os ícones sociais */
-    }
-
-    .social-links a {
-        font-size: 0.9em; /* Reduz o tamanho da fonte dos links sociais */
-    }
-
-    .social-links img {
-        width: 18px; /* Diminui o tamanho dos ícones sociais */
-        height: 18px;
-    }
-
-    /* Ajustes para o contêiner principal */
-    .container {
-        width: 95%; /* Ocupa mais largura em telas pequenas */
-        padding: 0; /* Remove padding extra no container para mobile */
-    }
-
-    /* Ajustes para os botões do acordeão */
-    .accordion-button {
-        padding: 12px 20px; /* Reduz o preenchimento do botão */
-        font-size: 1em; /* Reduz o tamanho da fonte do botão */
-    }
-
-    .accordion-button::after {
-        font-size: 1.2em; /* Diminui o tamanho do ícone de +/- */
-    }
-
-    /* Ajustes para o conteúdo do acordeão */
-    .accordion-content {
-        padding: 0 20px; /* Reduz o preenchimento lateral do conteúdo */
-    }
-
-    .accordion-content h2 {
-        font-size: 1.3em; /* Reduz o tamanho dos títulos de seção */
-        margin-bottom: 15px;
-        padding-bottom: 8px;
-    }
-
-    .personal-description {
-        font-size: 0.95em; /* Ajusta a fonte da descrição pessoal */
-    }
-
-    /* Ajustes para as seções de habilidades e formação */
-    .skills-grid {
-        flex-direction: column; /* Coloca as soft e hard skills em coluna */
-        gap: 20px; /* Reduz o espaçamento entre elas */
-    }
-
-    .soft-skills,
-    .hard-skills {
-        min-width: unset; /* Remove a largura mínima para flexibilidade */
-        padding: 15px; /* Reduz o preenchimento interno */
-    }
-
-    .soft-skills h3,
-    .hard-skills h3 {
-        font-size: 1.1em; /* Reduz o tamanho dos títulos de soft/hard skills */
-        margin-bottom: 10px;
-        padding-bottom: 5px;
-    }
-
-    .soft-skills li {
-        font-size: 0.95em; /* Reduz o tamanho da fonte das listas de habilidades */
-    }
-
-    /* Ajustes de Hard Skills dentro da Media Query */
-    .hard-skills-grid { /* Ajusta o grid para telas menores */
-        gap: 10px; /* Reduz ainda mais o gap em telas muito pequenas */
-    }
-    .skill-item {
-        width: 70px; /* Ajusta a largura do item para caber mais em telas pequenas */
-    }
-    .skill-item img {
-        width: 35px; /* Ajusta o tamanho do ícone em telas pequenas */
-        height: 35px;
-    }
-    .skill-item p {
-        font-size: 0.8em; /* Diminui a fonte do texto abaixo dos ícones de hard skills para telas menores */
-    }
-
-
-    /* Ajustes para a seção de formação acadêmica */
-    .mfa h3 {
-        font-size: 1.1em; /* Reduz a fonte do título do curso */
-    }
-
-    .mfa h4 {
-        font-size: 0.9em; /* Reduz a fonte do nome da instituição */
-    }
-
-    .mfa2 img {
-        width: 35px; /* Diminui o tamanho da logo da instituição de ensino */
-    }
-
-    /* Ajustes para as experiências profissionais */
-    .experience-item h3 {
-        font-size: 1.1em; /* Reduz a fonte do título da experiência */
-    }
-
-    .experience-item p {
-        font-size: 0.9em; /* Reduz a fonte dos detalhes da experiência */
-        margin-bottom: 3px;
-    }
-
-    .experience-item p img {
-        width: 30px; /* Diminui o tamanho das logos das empresas/ícones */
-    }
-
-    .experience-item ul {
-        padding-left: 15px; /* Ajusta o padding da lista */
-    }
-
-    .experience-item li {
-        font-size: 0.9em; /* Reduz a fonte dos itens da lista de atividades */
-    }
-
-    /* Ajustes para certificações */
-    .certification-item h3 {
-        font-size: 1.1em;
-    }
-    .certification-item p {
-        font-size: 0.9em;
-    }
-    .certification-item p img {
-        width: 25px; /* Diminui logos das certificações */
-    }
-    .credential-link {
-        font-size: 0.9em;
-    }
-}
-
-/* Opcional: Media Query para telas ainda menores (ex: smartphones muito pequenos) */
-@media (max-width: 480px) {
-    body {
-        padding: 12px;
-    }
-
-    .header-profile {
-        padding: 10px;
-    }
-
-    .profile-photo {
-        width: 105px;
-        height: 105px;
-    }
-
-    .header-profile h1 {
-        font-size: 1.5em;
-    }
-
-    .title-role {
-        font-size: 0.9em;
-    }
-
-    .contact-info {
-        font-size: 0.8em;
-    }
-
-    .accordion-button {
-        font-size: 0.9em;
-        padding: 10px 15px;
-    }
-
-    .accordion-content h2 {
-        font-size: 1.1em;
-    }
-
-    .personal-description,
-    .soft-skills li,
-    .experience-item p,
-    .experience-item li,
-    .certification-item p {
-        font-size: 0.85em;
-    }
-
-    /* Ajustes adicionais para hard-skills-grid em telas muito pequenas */
-    .hard-skills-grid {
-        gap: 8px;
-    }
-    .skill-item {
-        width: 65px; /* Permite mais itens por linha ou um layout mais compacto */
-    }
-    .skill-item img {
-        width: 30px;
-        height: 30px;
-    }
-    .skill-item p {
-        font-size: 0.75em;
-    }
-}
-
-.eu {
-    font-family: times;
-    color: #407192;
-}
-
-
-
-
-.img_form {
-    width: 300px;
-    border-radius: 150px; /* Quanto maior o número, mais redondo */
-}
-
-
-
-
-
-
-
-
-.btn {
-  position: relative;
-  padding: 1.0rem 1rem;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #fff;
-  background: none;
-  border: none;
-  cursor: pointer;
-  overflow: hidden;
-  transition: all 0.4s ease;
-  min-width: 200px;
-  z-index: 1;
-}
-
-.neon-pulse {
-  border: 2px solid rgb(255, 255, 255);
-  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
-  overflow: visible;
-}
-
-.neon-pulse::before,
-.neon-pulse::after {
-  content: "";
-  position: absolute;
-  inset: -4px;
-  border: 2px solid #0ff;
-  border-radius: inherit;
-  animation: pulseOut 2.5s ease-out infinite;
-  opacity: 0;
-}
-
-.neon-pulse::after {
-  animation-delay: 1s;
-}
-
-@keyframes pulseOut {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1.5);
-    opacity: 0;
-  }
-}
-
-
-
-
-
-/* Container do botão para centralizar e não vazar estilo */
-.botao_consultoria {
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-}
-
-.botao_consultoria a {
-    position: relative;
-    display: inline-block;
-    padding: 15px 30px;
-    color: #00ffcc; /* Verde Neon da imagem */
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    text-decoration: none;
-    font-size: 1.2em;
-    font-weight: bold;
-    overflow: hidden;
-    background: rgba(0, 0, 0, 0.2); /* Fundo sutil */
-    transition: 0.5s;
-}
-
-/* Efeito de brilho ao passar o mouse (opcional) */
-.botao_consultoria a:hover {
-    background: #00ffcc;
-    color: #050801;
-    box-shadow: 0 0 5px #00ffcc, 0 0 25px #00ffcc, 0 0 50px #00ffcc, 0 0 200px #00ffcc;
-}
-
-/* Configuração comum das 4 luzes */
-.botao_consultoria a span {
-    position: absolute;
-    display: block;
-}
-
-/* 1. Luz Superior */
-.botao_consultoria a span:nth-child(1) {
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #00ffcc);
-    animation: luz-topo 2s linear infinite;
-}
-@keyframes luz-topo {
-    0% { left: -100%; }
-    50%, 100% { left: 100%; }
-}
-
-/* 2. Luz Direita */
-.botao_consultoria a span:nth-child(2) {
-    top: -100%;
-    right: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(180deg, transparent, #00ffcc);
-    animation: luz-direita 2s linear infinite;
-    animation-delay: 0.5s; /* Começa quando a de cima está no meio */
-}
-@keyframes luz-direita {
-    0% { top: -100%; }
-    50%, 100% { top: 100%; }
-}
-
-/* 3. Luz Inferior */
-.botao_consultoria a span:nth-child(3) {
-    bottom: 0;
-    right: -100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(270deg, transparent, #00ffcc);
-    animation: luz-baixo 2s linear infinite;
-    animation-delay: 1s;
-}
-@keyframes luz-baixo {
-    0% { right: -100%; }
-    50%, 100% { right: 100%; }
-}
-
-/* 4. Luz Esquerda */
-.botao_consultoria a span:nth-child(4) {
-    bottom: -100%;
-    left: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(360deg, transparent, #00ffcc);
-    animation: luz-esquerda 2s linear infinite;
-    animation-delay: 1.5s;
-}
-@keyframes luz-esquerda {
-    0% { bottom: -100%; }
-    50%, 100% { bottom: 100%; }
-}
-
-
-
-
-
-
-
-/* --------- GERAL RESPONSIVO --------- */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 20px;
-    background: linear-gradient(to right, #001f3f, #003566, #003566, #001f3f);
-    color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-    gap: 20px;
-}
-
-.header-profile {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    width: 90%;
-    max-width: 900px;
-    padding: 20px;
-    text-align: center;
-}
+/* =========================================================
+   DESCRIÇÃO
+========================================================= */
 
 .personal-description {
-    font-size: clamp(1em, 3vw, 1.1em); /* Ajusta o texto conforme a tela */
-    line-height: 1.6;
-    max-width: 700px;
-    margin: 10px auto;
+    max-width: 720px;
+
+    margin:
+        15px auto;
+
+    font-size: 1.05em;
+
+    line-height: 1.7;
+
+    color: var(--text-muted);
 }
 
-/* --------- GRID DE SERVIÇOS --------- */
+
+/* =========================================================
+   CONSULTORIA
+========================================================= */
+
 .container-servicos {
     width: 90%;
+
     max-width: 900px;
+
     text-align: center;
 }
 
-.hard-skills-grid {
-    display: flex;
-    flex-wrap: wrap; /* Faz os itens pularem linha no celular */
-    justify-content: center;
-    gap: 15px;
-    padding: 20px 0;
-}
 
-.skill-item {
-    flex: 1 1 120px; /* Base de 120px, mas cresce se precisar */
-    max-width: 150px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: transform 0.3s;
-}
-
-.skill-item img { width: 50px; height: 50px; margin-bottom: 10px; }
-
-/* --------- LISTA DE VANTAGENS --------- */
 .lista-vantagens {
     list-style: none;
+
     padding: 0;
+
+    margin: 0 auto;
+
+    width: min(100%, 750px);
+
     text-align: left;
-    display: inline-block; /* Mantém centralizado mas alinhado à esquerda */
 }
 
 .lista-vantagens li {
-    margin-bottom: 15px;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 10px;
-    border-left: 4px solid #00ffcc;
+    margin-bottom: 12px;
+
+    padding: 14px 16px;
+
+    border-left:
+        3px solid
+        #00ffcc;
+
+    border-radius:
+        0 10px 10px 0;
+
+    background:
+        rgba(255,255,255,0.045);
+
+    color: #dceaff;
 }
 
-/* --------- BOTÃO COM RASTRO DE LUZ (CSS ISOLADO) --------- */
+
+/* =========================================================
+   BOTÃO CONSULTORIA
+========================================================= */
+
 .botao_consultoria {
-    margin: 40px 0;
+    display: flex;
+
+    justify-content: center;
+
+    margin: 35px 0;
 }
 
 .botao_consultoria a {
     position: relative;
+
     display: inline-block;
-    padding: 20px 40px;
+
+    padding: 16px 30px;
+
     color: #00ffcc;
+
     text-transform: uppercase;
+
     letter-spacing: 2px;
+
     text-decoration: none;
+
     font-weight: bold;
+
+    border:
+        1px solid
+        rgba(0,255,204,0.45);
+
+    border-radius: 12px;
+
+    background:
+        rgba(0,0,0,0.25);
+
+    transition: 0.35s ease;
+
     overflow: hidden;
-    transition: 0.5s;
-    background: rgba(0,0,0,0.3);
 }
 
 .botao_consultoria a:hover {
     background: #00ffcc;
-    color: #001f3f;
-    box-shadow: 0 0 50px #00ffcc;
-}
 
-.botao_consultoria a span { position: absolute; display: block; }
+    color: #03120f;
 
-/* Animações das 4 pontas */
-.botao_consultoria a span:nth-child(1) { top: 0; left: -100%; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, #00ffcc); animation: luz1 2s linear infinite; }
-@keyframes luz1 { 0% { left: -100%; } 50%,100% { left: 100%; } }
+    box-shadow:
+        0 0 10px #00ffcc,
+        0 0 30px rgba(0,255,204,0.35);
 
-.botao_consultoria a span:nth-child(2) { top: -100%; right: 0; width: 2px; height: 100%; background: linear-gradient(180deg, transparent, #00ffcc); animation: luz2 2s linear infinite; animation-delay: 0.5s; }
-@keyframes luz2 { 0% { top: -100%; } 50%,100% { top: 100%; } }
-
-.botao_consultoria a span:nth-child(3) { bottom: 0; right: -100%; width: 100%; height: 2px; background: linear-gradient(270deg, transparent, #00ffcc); animation: luz3 2s linear infinite; animation-delay: 1s; }
-@keyframes luz3 { 0% { right: -100%; } 50%,100% { right: 100%; } }
-
-.botao_consultoria a span:nth-child(4) { bottom: -100%; left: 0; width: 2px; height: 100%; background: linear-gradient(360deg, transparent, #00ffcc); animation: luz4 2s linear infinite; animation-delay: 1.5s; }
-@keyframes luz4 { 0% { bottom: -100%; } 50%,100% { bottom: 100%; } }
-
-/* --------- MEDIA QUERY PARA CELULAR (TELA PEQUENA) --------- */
-@media (max-width: 600px) {
-    body { padding: 10px; }
-    .header-profile h1 { font-size: 1.5rem; }
-    .botao_consultoria a { padding: 15px 25px; font-size: 0.9rem; width: 80%; }
-    .skill-item { flex: 1 1 100px; }
+    transform: translateY(-3px);
 }
 
 
+.botao_consultoria a span {
+    position: absolute;
+
+    display: block;
+}
 
 
+/* linha superior */
+
+.botao_consultoria a span:nth-child(1) {
+    top: 0;
+
+    left: -100%;
+
+    width: 100%;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #00ffcc
+        );
+
+    animation:
+        luz-topo 2s linear infinite;
+}
+
+@keyframes luz-topo {
+
+    0% {
+        left: -100%;
+    }
+
+    50%,
+    100% {
+        left: 100%;
+    }
+
+}
 
 
+/* linha direita */
+
+.botao_consultoria a span:nth-child(2) {
+    top: -100%;
+
+    right: 0;
+
+    width: 2px;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent,
+            #00ffcc
+        );
+
+    animation:
+        luz-direita 2s linear infinite;
+
+    animation-delay:
+        0.5s;
+}
+
+@keyframes luz-direita {
+
+    0% {
+        top: -100%;
+    }
+
+    50%,
+    100% {
+        top: 100%;
+    }
+
+}
 
 
+/* linha inferior */
+
+.botao_consultoria a span:nth-child(3) {
+    bottom: 0;
+
+    right: -100%;
+
+    width: 100%;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            270deg,
+            transparent,
+            #00ffcc
+        );
+
+    animation:
+        luz-baixo 2s linear infinite;
+
+    animation-delay:
+        1s;
+}
+
+@keyframes luz-baixo {
+
+    0% {
+        right: -100%;
+    }
+
+    50%,
+    100% {
+        right: 100%;
+    }
+
+}
+
+
+/* linha esquerda */
+
+.botao_consultoria a span:nth-child(4) {
+    bottom: -100%;
+
+    left: 0;
+
+    width: 2px;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            360deg,
+            transparent,
+            #00ffcc
+        );
+
+    animation:
+        luz-esquerda 2s linear infinite;
+
+    animation-delay:
+        1.5s;
+}
+
+@keyframes luz-esquerda {
+
+    0% {
+        bottom: -100%;
+    }
+
+    50%,
+    100% {
+        bottom: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.eu {
+    font-family:
+        'Segoe UI',
+        Tahoma,
+        Geneva,
+        Verdana,
+        sans-serif;
+
+    color: #7794a8;
+
+    text-align: center;
+
+    opacity: 0.85;
+}
+
+.eu h6 {
+    font-size: 0.82rem;
+
+    font-weight: 400;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    body {
+        padding:
+            15px 10px 35px;
+    }
+
+
+    .header-profile {
+        width: 95%;
+
+        padding: 30px 20px;
+
+        border-radius: 20px;
+    }
+
+
+    .profile-photo {
+        width: 110px;
+
+        height: 110px;
+    }
+
+
+    .header-profile h1 {
+        font-size: 1.9em;
+    }
+
+
+    .title-role {
+        font-size: 1em;
+    }
+
+
+    .contact-info {
+        font-size: 0.85em;
+
+        line-height: 1.4;
+    }
+
+
+    .social-links {
+        gap: 10px;
+    }
+
+
+    .social-links a {
+        padding:
+            8px 12px;
+
+        font-size:
+            0.82em;
+    }
+
+
+    .social-links img {
+        width: 18px;
+
+        height: 18px;
+    }
+
+
+    .container {
+        width: 95%;
+    }
+
+
+    .accordion-button {
+        padding:
+            17px 18px;
+
+        font-size:
+            0.98em;
+    }
+
+
+    .accordion-content {
+        padding-left: 18px;
+
+        padding-right: 18px;
+    }
+
+
+    .skills-grid {
+        flex-direction: column;
+
+        gap: 18px;
+    }
+
+
+    .soft-skills,
+    .hard-skills {
+        min-width: unset;
+
+        padding: 16px;
+    }
+
+
+    .skill-item {
+        width: 75px;
+    }
+
+
+    .skill-item img {
+        width: 36px;
+
+        height: 36px;
+    }
+
+
+    .skill-item p {
+        font-size: 0.76em;
+    }
+
+
+    .experience-item {
+        padding: 16px;
+    }
+
+
+    .experience-item h3 {
+        font-size: 1.05em;
+    }
+
+
+    .experience-item p {
+        font-size: 0.88em;
+    }
+
+
+    .experience-item p img {
+        width: 30px;
+    }
+
+
+    .experience-item li {
+        font-size: 0.88em;
+    }
+
+
+    .certification-item {
+        padding: 16px;
+    }
+
+
+    .certification-item h3 {
+        font-size: 1em;
+    }
+
+
+    .certification-item p {
+        font-size: 0.86em;
+    }
+
+
+    .credential-link {
+        font-size: 0.85em;
+    }
+
+
+    .botao_consultoria a {
+        width: 85%;
+
+        padding:
+            14px 20px;
+
+        font-size:
+            0.85em;
+
+        text-align: center;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    body {
+        padding:
+            10px 7px 30px;
+    }
+
+
+    .header-profile {
+        width: 100%;
+
+        padding: 25px 14px;
+    }
+
+
+    .profile-photo {
+        width: 95px;
+
+        height: 95px;
+    }
+
+
+    .header-profile h1 {
+        font-size: 1.55em;
+    }
+
+
+    .title-role {
+        font-size: 0.88em;
+    }
+
+
+    .contact-info {
+        font-size: 0.76em;
+    }
+
+
+    .social-links {
+        gap: 7px;
+    }
+
+
+    .social-links a {
+        padding:
+            7px 10px;
+
+        font-size:
+            0.76em;
+    }
+
+
+    .container {
+        width: 100%;
+    }
+
+
+    .accordion-button {
+        padding:
+            15px;
+
+        font-size:
+            0.88em;
+    }
+
+
+    .accordion-button::after {
+        font-size:
+            1.25em;
+    }
+
+
+    .accordion-content {
+        padding-left: 15px;
+
+        padding-right: 15px;
+    }
+
+
+    .accordion-content h2 {
+        font-size:
+            1.15em;
+    }
+
+
+    .mfa h3 {
+        font-size:
+            1em;
+    }
+
+
+    .mfa h4 {
+        font-size:
+            0.85em;
+    }
+
+
+    .mfa2 img {
+        width:
+            35px !important;
+    }
+
+
+    .skill-item {
+        width:
+            65px;
+    }
+
+
+    .skill-item img {
+        width:
+            32px;
+
+        height:
+            32px;
+    }
+
+
+    .skill-item p {
+        font-size:
+            0.7em;
+    }
+
+
+    .experience-item p {
+        font-size:
+            0.8em;
+    }
+
+
+    .experience-item li {
+        font-size:
+            0.8em;
+    }
+
+
+    .certification-item h3 {
+        font-size:
+            0.9em;
+    }
+
+
+    .certification-item p {
+        font-size:
+            0.78em;
+    }
+
+
+    .credential-link {
+        font-size:
+            0.78em;
+
+        padding:
+            8px 13px;
+    }
+
+
+    .botao_consultoria a {
+        width:
+            90%;
+
+        padding:
+            13px 15px;
+
+        font-size:
+            0.74em;
+
+        letter-spacing:
+            1px;
+    }
+
+
+    .eu h6 {
+        font-size:
+            0.72rem;
+    }
+
+}
